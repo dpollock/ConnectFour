@@ -1,75 +1,83 @@
 Program SciFairProject;
-Uses Graph, Rwbgf, mouse, crt;
-Type Rowrange = 1..6;
-Col range = 1..8;
-Board= 1..2;
-AllBoard = Array[Rowrange, Colrange, Board] of Integer;
-CompDecide = Array[1..8,1..21of Integer;
-Val- empty, Ebox, Bbox, Rbox, Bchip, But But2, but3, but4: Pointer;
-size8, size7, Size, Size 1, Size2, Size3, Size4, size5, size6 : Word;
-Computerchoice, Computerpick, ValueRow, ValueCol, Numchip, ptum, choice, j,
-w,q, i„ humanchiprow, b, strat, x,y : integer;
-hinum, hinurn2, ta, u, t, cols:, rows, chiprow, chipcol : integer;
-computerturn. gameover, columnfiill, lb,rb boolean;
-Values : AllBoard;
-va, s : sting;
-CompCol : Comp Decide;
-Procedure aearMern;
 
+Uses Graph, Rwbgf, mouse, crt;
+
+Type Rowrange = 1..6;
+	Col range = 1..8;
+	Board= 1..2;
+	AllBoard = Array[Rowrange, Colrange, Board] of Integer;
+	CompDecide = Array[1..8,1..21of Integer;
+
+Var empty, Ebox, Bbox, Rbox, Bchip, But But2, but3, but4: Pointer;
+	size8, size7, Size, Size 1, Size2, Size3, Size4, size5, size6 : Word;
+	Computerchoice, Computerpick, ValueRow, ValueCol, Numchip, ptum, choice, j,
+	w,q, i, humanchiprow, b, strat, x,y : integer;
+	hinum, hinurn2, ta, u, t, cols, rows, chiprow, chipcol : integer;
+	computerturn, gameover, columnfull, lb,rb boolean;
+	Values : AllBoard;
+	va, s : sting;
+	CompCol : Comp Decide;
+
+Procedure ClearMem;
 Begin
-FreeMern(Ebox, Size); FreeMem(Bbox, Size1) FreeMem(Rbox,Size2); FreeMem(Bchip,Size3); FreeMem(Butl,Size.5); FreeMern(But3,Size6); FreeMem(But4,Size7),
+  FreeMern(Ebox, Size); 
+  FreeMem(Bbox, Size1);
+  FreeMem(Rbox,Size2); 
+  FreeMem(Bchip,Size3); 
+  FreeMem(Butl,Size5); 
+  FreeMern(But3,Size6); 
+  FreeMem(But4,Size7);
 end;
 
 Procedure win;
-Var Endloop : boolean;
+  Var Endloop : boolean;
 Begin
 If computerturn = true then
-begin
-Setcolor(15)
-Outtextxy(255,420,'YOU WIN ! !');
-settextjustify(centertext,centertext);
-while not endloop do
-Begin
-mouseinfo(x,y,lb,rb);
-true then endloop = true;
-end;
-end;
-If cornputertum = false then
-begin
-Setcolor(15 5);
-settexOusify(centenext,centertext);
-Outtextxy(255,420, 'YOU LOSET); while not endloop do Begin
-mouseinfo(x,y,lb,rb);
-if 11)-- true then endloop := true;
-end;
-end;
-delay(3000);
+  begin
+    Setcolor(15);
+    Outtextxy(255,420,'YOU WIN!!');
+    settextjustify(centertext,centertext);
+    while not endloop do
+      Begin
+        mouseinfo(x,y,lb,rb);
+        if lb=true then endloop := true;
+      end;
+  end;
+
+  If computerturn = false then
+  begin
+    Setcolor(15 5);
+    settextjustify(centertext,centertext);
+    Outtextxy(255,420, 'YOU LOSE!!'); 
+    while not endloop do Begin
+      mouseinfo(x,y,lb,rb);
+      if 1b == true then endloop := true;
+    end;
+  end;
+  delay(3000);
 end;		
-		•
-		
 
 Procedure ClearlmpossibleMoves;
-Var choice, cols, rows :integer;
+  Var choice, cols, rows :integer;
 Begin
-For choice := 1 to 2 do
-Begin
-for cols 1 to 8 do
-cornpcolfrals,thoice] := 0;
-for cols := 1 to 8 do
-for rows := 2 to 6 do
-if Valuesirows,,cols,choicej < 7 then
-if Valuesfrows-1,cols,choicej < 7 then
-Valuesfrows,cols,choice] 0;
-End;
-for choice := I to 2 do
-for cols I to 8 do
-for rows = I to 6 do
-if values[rows, cols, choice] > compcolfrols,choice] then
-begin
-if valuesfrows„cols,ehoicei < 8 then Compcolicols„choicel .---
-valuestrows,cols,choicel;
-if (rows = 6) and (valuestrows,cols,choice),73 then Cornp..-olfccas,chcticel .-= -
-end;
+  For choice := 1 to 2 do
+  Begin
+   for cols := 1 to 8 do
+     compcol[cols,choice] := 0;
+     for cols := 1 to 8 do
+        for rows := 2 to 6 do
+          if Values[rows,cols,choicej < 7 then
+          if Values[rows-1,cols,choicej < 7 then
+            Valuesfrows,cols,choice] 0;
+  End;
+for choice := 1 to 2 do
+  for cols := 1 to 8 do
+    for rows := 1 to 6 do
+      if values[rows, cols, choice] > compcolfrols,choice] then
+      begin
+       if valuesfrows„cols,ehoicei < 8 then Compcol[cols„choice] := values[rows,cols,choice];
+       if (rows = 6) and (values[rows,cols,choice) > 7  then Compcol[cols,choice] := 7;
+      end;
 end;
 
 Procedure Checklip;
