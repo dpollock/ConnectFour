@@ -6,7 +6,7 @@ Type Rowrange = 1..6;
 	Col range = 1..8;
 	Board= 1..2;
 	AllBoard = Array[Rowrange, Colrange, Board] of Integer;
-	CompDecide = Array[1..8,1..21of Integer;
+	CompDecide = Array[1..8,1..2] of Integer;
 
 Var empty, Ebox, Bbox, Rbox, Bchip, But But2, but3, but4: Pointer;
 	size8, size7, Size, Size 1, Size2, Size3, Size4, size5, size6 : Word;
@@ -92,8 +92,8 @@ Begin
 Values1 := valuesfchiprow,chipcol,choice1;
 Values2 := values[chiprow+1,chipcol,choicei;
 Values3 := values[chiprow+2,chipcot,choice];
-NiTalu.es4 := values[chiprow+3,chipcol,choicej;
-If values' > then Numchip := Leh .p+ 1;
+Values4 := values[chiprow+3,chipcol,choicej;
+If values > then Numchip := Leh .p+ 1;
 If (values2 > 7) and (Values2 <> ptum) then Numchip := Numchip
 (values3 > 7) and (Values3 <> pturn) then Numchip := Numchip
 If (values4 > ) and (Yalues4 <> pturn) to Numchip := Numc.hip
@@ -124,7 +124,7 @@ Values2 := valuestchiprow+ 1,chipcol+ I choice];
 Values3 := values[chiprow+2,chipcol+2,choice j;
 Values4 := values [chiprow+3,chipcol+3,choice];
 If values1 > 7 then Numchip := Numchip I;
-If (values2 > '7) and (Values2 <> ptum) thenNumchip := Nurnchip ;
+If (values2 > 7) and (Values2 <> ptum) thenNumchip := Nurnchip ;
 If (values3 > and (Values3 <> pturn) then Nurnchip iNurnchip + 1;
 If (values4 > 7) and (Values4 <> pturn) then Nurnchip Nurnchip
 If (values2 = ptum) or (values3 ptum) or (vatues4 pturn) then Numcbip := 0;
@@ -272,8 +272,8 @@ delay( .000);
 Ouftexbw(255,420,That Column Is Full,
 settextjustir(lefttext, centertext).
 End;
-If values{rows, humanchiprow, I I < 7 then
-Begin
+If values[rows, humanchiprow, I I] < 7 then
+begin
 spotx := humanchiprow;
 spoty rows;
 endloop true;
